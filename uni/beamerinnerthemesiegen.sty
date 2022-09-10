@@ -1,0 +1,42 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=unihellblau] (0,.8*\the\paperheight) -- (.495*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
+  \fill[color=unidunkelblau] (\the\paperwidth,.8*\the\paperheight) -- (.505*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle[path picture={
+  	\node at (path picture bounding box.center) {
+  		\textcolor{white}{This is a long text.}
+  	};}
+  ];
+%  \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{siegen}[1][]
+{ 
+   \vskip.25\paperheight%
+    \begin{beamercolorbox}[wd=.4\paperwidth,#1]{structure}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip.5cm%
+    \begin{beamercolorbox}[wd=.3\paperwidth,#1]{structure}
+    	\usebeamerfont{author}\inserttitle\par%
+    \end{beamercolorbox}%
+	\vskip1cm%
+    \begin{beamercolorbox}[wd=.3\paperwidth,#1]{structure}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=.3\paperwidth,#1]{structure}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode
+<all>

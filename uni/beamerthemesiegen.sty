@@ -3,6 +3,10 @@
 % Requirement
 \RequirePackage{tikz}
 
+\DeclareOptionBeamer{titlepage}{\PassOptionsToPackage{titlepage=#1}{beamerinnerthemesiegen}}
+\ProcessOptionsBeamer
+
+
 % Settings
 \useinnertheme{siegen}
 \useoutertheme{siegen}

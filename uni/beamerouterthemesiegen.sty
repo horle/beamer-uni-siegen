@@ -4,16 +4,23 @@
 \defbeamertemplate*{frametitle}{siegen}[1][]
 {
 	\vskip.05\paperheight%
-	\begin{beamercolorbox}[wd=\paperwidth,ht=.18\paperheight]{frametitle} 
+	\begin{beamercolorbox}[wd=\paperwidth,ht=.15\paperheight]{frametitle} 
 		\begin{tikzpicture}
-			\useasboundingbox(0,0) rectangle(\the\paperwidth,.18\paperheight);
 			\ifx\insertsection\@empty%
-			{\node[anchor=south west,font=\large] at (.5,0){
-				\parbox{.9\paperwidth}{\insertframetitle}};}
+			{
+				\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
+				\node[anchor=north west,font=\large] at (.8,1.3){
+					\parbox{.85\paperwidth}{\insertframetitle}
+				};
+			}
 			\else%
-			{\node[anchor=south west,font=\scriptsize] at (.5,1.1){\insertsection};%
-				\node[anchor=south west,font=\large] at (.5,0){
-					\parbox{.9\paperwidth}{\insertframetitle}};}%
+			{
+				\useasboundingbox(0,0) rectangle (\paperwidth,.15\paperheight);
+				\node[anchor=south west,font=\scriptsize] at (.8,1.1){\insertsection};%
+				\node[anchor=north west,font=\large] at (.8,1.1){
+					\parbox{.85\paperwidth}{\insertframetitle}
+				};
+			}%
 			\fi
 		\end{tikzpicture}
 	\end{beamercolorbox}

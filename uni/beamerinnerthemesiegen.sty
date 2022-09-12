@@ -19,11 +19,17 @@
 	\begin{tikzpicture}[anchor=north west]
 		\useasboundingbox (1,0) rectangle(\the\paperwidth,\the\paperheight);
 		\begin{pgfonlayer}{bg}
-		\usebeamercolor{secondary}
+		\usebeamercolor{primary}
 		\fill[fg] (0,.8\paperheight) -- (.497*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
 		
-		\usebeamercolor{primary}
-		\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+		\ifx\inserttitlegraphic\@empty%
+		{
+			\usebeamercolor{secondary}
+			\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+		} \else {
+			\clip (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
+		} \fi
 		\end{pgfonlayer}
 	
 		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
@@ -35,7 +41,7 @@
 		\end{beamercolorbox}};
 		
 		\node[anchor=south west] at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
-			\usebeamerfont{author}\insertauthor%
+			\usebeamerfont{author}\insertauthor\par%
 		\end{beamercolorbox}};
 		
 		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
@@ -67,8 +73,15 @@
 			\usebeamercolor{primary}
 			\fill[fg] (0,.8\paperheight) -- (.497*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
 			
-			\usebeamercolor{secondary}
-			\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			\ifx\inserttitlegraphic\@empty%
+			{
+				\usebeamercolor{secondary}
+				\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			} \else {
+				\clip (\the\paperwidth,1.01*\paperheight) -- (.547*\the\paperwidth,1.01\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
+			} \fi
+			
 		\end{pgfonlayer}
 	
 		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
@@ -80,7 +93,7 @@
 		\end{beamercolorbox}};
 		
 		\node[anchor=south west] at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
-				\usebeamerfont{author}\insertauthor%
+				\usebeamerfont{author}\insertauthor\par%
 		\end{beamercolorbox}};
 		
 		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
@@ -111,8 +124,14 @@
 			\usebeamercolor{primary}
 			\fill[fg] (0,.8\paperheight) -- (.697*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
 			
-			\usebeamercolor{secondary}
-			\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.703*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			\ifx\inserttitlegraphic\@empty%
+			{
+				\usebeamercolor{secondary}
+				\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.703*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			} \else {
+				\clip (\the\paperwidth,.8*\the\paperheight) -- (.703*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
+			} \fi
 		\end{pgfonlayer}
 	
 		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.6\paperwidth,#1]{titlelike}
@@ -124,7 +143,7 @@
 		\end{beamercolorbox}};
 	
 		\node[anchor=south west] at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
-				\usebeamerfont{author}\insertauthor%
+				\usebeamerfont{author}\insertauthor\par%
 		\end{beamercolorbox}};
 	
 		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}

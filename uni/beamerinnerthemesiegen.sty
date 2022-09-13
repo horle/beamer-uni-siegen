@@ -17,22 +17,27 @@
 	\pgfsetlayers{bg,main}
 	
 	\begin{tikzpicture}[anchor=north west]
-		\useasboundingbox (1,0) rectangle(\the\paperwidth,\the\paperheight);
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
 		\begin{pgfonlayer}{bg}
+		
+		\path[name path=h] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+		\path[name path=d] (.56\paperwidth, 1.01\paperheight) -- ++(-110:100);
+		\path[name intersections={of=h and d,by=i}];
+		
 		\usebeamercolor{primary}
-		\fill[fg] (0,.8\paperheight) -- (.497*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
+		\fill[fg] (0,.75\paperheight) -- ($(i)-(1mm,0)$) -- ++(-110:100) -- cycle;
 		
 		\ifx\inserttitlegraphic\@empty%
 		{
 			\usebeamercolor{secondary}
-			\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			\fill[fg] (\paperwidth,.75\paperheight) -- (i) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 		} \else {
-			\clip (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+			\clip (\paperwidth,.75\paperheight) -- (i) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 			\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
 		} \fi
 		\end{pgfonlayer}
 	
-		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
+		\node at (.03\paperwidth,.7\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
 			\usebeamerfont{title}\inserttitle\par%
 		\end{beamercolorbox}};
 		
@@ -48,7 +53,7 @@
 			\usebeamerfont{date}\insertdate\par%
 		\end{beamercolorbox}};
 		
-		\node at (.03\paperwidth,.12\paperheight) 	{\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
+		\node[anchor=south west] at (.03\paperwidth,.06\paperheight)	{\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
 			\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 		
@@ -68,23 +73,30 @@
 	\pgfsetlayers{bg,main}
 	
 	\begin{tikzpicture}[anchor=north west]
-		\useasboundingbox (1,0) rectangle(\the\paperwidth,\the\paperheight);
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
 		\begin{pgfonlayer}{bg}
+		
+			\path[name path=hl] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+			\path[name path=hh] (0,1.01\paperheight) -- (\paperwidth,1.01\paperheight);
+			\path[name path=d] (.56\paperwidth, 1.01\paperheight) -- ++(-110:100);
+			\path[name intersections={of=hl and d,by=il}];
+			\path[name intersections={of=hh and d,by=ih}];
+		
 			\usebeamercolor{primary}
-			\fill[fg] (0,.8\paperheight) -- (.497*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
+			\fill[fg] (0,.75\paperheight) -- ($(il)-(1mm,0)$) -- ++(-110:100) -- cycle;
 			
 			\ifx\inserttitlegraphic\@empty%
 			{
 				\usebeamercolor{secondary}
-				\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.503*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\fill[fg] (\paperwidth,.8\paperheight) -- (ih) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 			} \else {
-				\clip (\the\paperwidth,1.01*\paperheight) -- (.547*\the\paperwidth,1.01\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\clip (\paperwidth,1.01*\paperheight) -- (ih) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 				\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
 			} \fi
 			
 		\end{pgfonlayer}
 	
-		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
+		\node at (.03\paperwidth,.7\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
 				\usebeamerfont{title}\inserttitle\par%
 		\end{beamercolorbox}};
 		
@@ -99,8 +111,8 @@
 		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
 				\usebeamerfont{date}\insertdate\par%
 		\end{beamercolorbox}};
-		
-		\node at (.03\paperwidth,.12\paperheight) 	{\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
+				
+		\node[anchor=south west] at (.03\paperwidth,.06\paperheight) 	{\begin{beamercolorbox}[wd=.3\paperwidth,#1]{titlelike}
 				\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 	
@@ -119,22 +131,29 @@
 	\pgfsetlayers{bg,main}
 	
 	\begin{tikzpicture}[anchor=north west]
-		\useasboundingbox (1,0) rectangle(\the\paperwidth,\the\paperheight);
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
 		\begin{pgfonlayer}{bg}
+			
+			\path[name path=hl] (0,.25\paperheight) -- (\paperwidth,.25\paperheight);
+			\path[name path=hh] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+			\path[name path=d] (.5\paperwidth, 0) -- ++(70:100);
+			\path[name intersections={of=hl and d,by=il}];
+			\path[name intersections={of=hh and d,by=ih}];
+		
 			\usebeamercolor{primary}
-			\fill[fg] (0,.8\paperheight) -- (.697*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- cycle;
+			\fill[fg] (0,.75\paperheight) -- ($(ih)-(1mm,0)$) -- ++(-110:100) -- cycle;
 			
 			\ifx\inserttitlegraphic\@empty%
 			{
 				\usebeamercolor{secondary}
-				\fill[fg] (\the\paperwidth,.8*\the\paperheight) -- (.703*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\fill[fg] (il) --++(70:100) -- (\paperwidth,1.01\paperheight) -- (\paperwidth,.25\paperheight) -- cycle;
 			} \else {
-				\clip (\the\paperwidth,.8*\the\paperheight) -- (.703*\the\paperwidth,.8*\the\paperheight) -- ++(-110:100) -- (\the\paperwidth,0) -- cycle;
+				\clip (il) --++(70:100) -- (\paperwidth,1.01\paperheight) -- (\paperwidth,.25\paperheight) -- cycle;
 				\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
 			} \fi
 		\end{pgfonlayer}
 	
-		\node at (.03\paperwidth,.74\paperheight) {\begin{beamercolorbox}[wd=.6\paperwidth,#1]{titlelike}
+		\node at (.03\paperwidth,.7\paperheight) {\begin{beamercolorbox}[wd=.55\paperwidth,#1]{titlelike}
 				\usebeamerfont{title}\inserttitle\par%
 		\end{beamercolorbox}};
 	
@@ -146,17 +165,86 @@
 				\usebeamerfont{author}\insertauthor\par%
 		\end{beamercolorbox}};
 	
-		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
+		\node at (.03\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.45\paperwidth,#1]{titlelike}
 				\usebeamerfont{date}\insertdate\par%
 		\end{beamercolorbox}};
 		
-		\node at (.03\paperwidth,.12\paperheight) 	{\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
+		\node[anchor=south west] at (.03\paperwidth,.06\paperheight) 	{\begin{beamercolorbox}[wd=.45\paperwidth,#1]{titlelike}
+				\usebeamerfont{date}uni-siegen.de\par%
+		\end{beamercolorbox}};
+				
+		\node[anchor=south east] at (.95\paperwidth,.09\paperheight)	{\begin{beamercolorbox}[wd=.15\paperwidth,#1]{tertiary}
+				\usebeamerfont{author} www.uni-siegen.de\par%
+		\end{beamercolorbox}};
+	
+		\node at (.03\paperwidth, .95\paperheight)
+		{
+			\includegraphics[height=.1\paperheight]{img/logo_uni.pdf}
+		};
+	
+	\end{tikzpicture}
+}
+
+% Title page 4
+\defbeamertemplate{title page}{alternative4}[1][]
+{
+	\pgfdeclarelayer{bg}    % declare background layer
+	\pgfdeclarelayer{bbg}
+	\pgfsetlayers{bbg,bg,main}
+			
+	\setbeamerfont{author}{size=\footnotesize, shape=\bfseries}
+	\setbeamerfont{date}{size=\footnotesize, shape=\bfseries}
+	
+	\begin{tikzpicture}[anchor=north west]
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		\begin{pgfonlayer}{bbg}
+			
+			\path[name path=hl] (0,.32\paperheight) -- (\paperwidth,.32\paperheight);
+			\path[name path=hm] (0,.5\paperheight) -- (\paperwidth,.5\paperheight);
+			\path[name path=hb] (0,.62\paperheight) -- (\paperwidth,.62\paperheight);
+			\path[name path=hh] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+			\path[name path=d1] (.35\paperwidth, 0) -- ++(70:100);
+			\path[name path=d2] (.8\paperwidth, 0) -- ++(110:100);
+			\path[name intersections={of=hm and d1,by=il1}];
+			\path[name intersections={of=hl and d1,by=il2}];
+			\path[name intersections={of=hh and d2,by=ih1}];
+			\path[name intersections={of=hm and d2,by=ih2}];
+			\path[name intersections={of=hb and d2,by=ib}];
+			
+			\ifx\inserttitlegraphic\@empty%
+			\else {
+				\clip (-1,.499\paperheight) -- (\paperwidth,.499\paperheight) -- (\paperwidth,0) -- (-1,0)-- cycle;
+				\node[anchor=south east] at ($(current page.south east)+(.14,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
+			} \fi
+		\end{pgfonlayer}
+		\begin{pgfonlayer}{bg}
+			\usebeamercolor{primary}
+			\fill[fg] (0,.75\paperheight) -- (ih1) -- ($(ih2)+(0,1mm)$)--(0,.5\paperheight+1mm) -- cycle;
+			\usebeamercolor{secondary}
+			\fill[fg] (0,.5\paperheight) -- (il1) -- (il2) --(0,.32\paperheight)-- cycle;
+			\usebeamercolor{tertiary}
+			\fill[fg] (\paperwidth,.62\paperheight) -- ($(ib)+(1mm,0)$) -- ($(ih2)+(1mm,1mm)$) -- (\paperwidth,.5\paperheight+1mm) -- cycle;
+		\end{pgfonlayer}
+	
+		\node at (.03\paperwidth,.71\paperheight) {\begin{beamercolorbox}[wd=.6\paperwidth,#1]{titlelike}
+				\usebeamerfont{title}\inserttitle\par%
+		\end{beamercolorbox}};
+	
+		\node[anchor=south west] at (.03\paperwidth,.41\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
+				\usebeamerfont{author}\insertauthor\par%
+		\end{beamercolorbox}};
+	
+		\node at (.03\paperwidth,.41\paperheight) {\begin{beamercolorbox}[wd=.45\paperwidth,#1]{titlelike}
+				\usebeamerfont{date}\insertdate\par%
+		\end{beamercolorbox}};
+		
+		\node[anchor=south west] at (.73\paperwidth,.532\paperheight) 	{\begin{beamercolorbox}[wd=.45\paperwidth,#1]{titlelike}
 				\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 	
 		\node at (.03\paperwidth, .95\paperheight)
 		{
-			\includegraphics[height=.07\paperheight]{img/logo_uni.pdf}
+			\includegraphics[height=.1\paperheight]{img/logo_uni.pdf}
 		};
 	
 	\end{tikzpicture}

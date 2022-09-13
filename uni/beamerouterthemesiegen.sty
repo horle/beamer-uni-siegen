@@ -26,4 +26,26 @@
 	\end{beamercolorbox}
 }
 
+% Part frame
+\defbeamertemplate*{part page}{siegen}[1][]
+{
+	\begin{tikzpicture}
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		
+		\usebeamercolor{secondary}
+		\fill[fg] (0,0) rectangle (.2\paperwidth,\paperheight);
+	
+		\node[anchor=south west] at (.04\paperwidth,.16\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
+			\usebeamerfont{part number}\insertpartnumber\par%
+		\end{beamercolorbox}};
+		
+		\usebeamercolor{primary}
+		\fill[fg] (.19\paperwidth,0) rectangle (\paperwidth,\paperheight);
+		
+		\node[anchor=south west] at (.33\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
+			\usebeamerfont{part title}\insertpart\par%
+		\end{beamercolorbox}};
+	\end{tikzpicture}
+}
+
 \mode<all>

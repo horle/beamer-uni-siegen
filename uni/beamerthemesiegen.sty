@@ -7,6 +7,12 @@
 \DeclareOptionBeamer{titlepage}{\PassOptionsToPackage{titlepage=#1}{beamerinnerthemesiegen}}
 \ProcessOptionsBeamer
 
+\setsansfont{Calibri}
+\setbeamerfont{title}{size=\LARGE, shape=\bfseries}
+\setbeamerfont{author}{size=\scriptsize}
+\setbeamerfont{date}{size=\scriptsize}
+\setbeamerfont{part number}{size*={220}{130}, shape=\bfseries}
+\setbeamerfont{part title}{size*={30}{36}, shape=\bfseries}
 
 % Settings
 \useinnertheme{siegen}
@@ -14,6 +20,12 @@
 \usecolortheme{siegen}
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\AtBeginPart{
+\begin{frame}
+\partpage
+\end{frame}
+}
 
 \mode<all>

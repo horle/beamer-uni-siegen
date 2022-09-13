@@ -31,7 +31,8 @@
 {
 	\begin{beamercolorbox}[wd=\paperwidth,ht=.15\paperheight]{footline} 
 		\begin{tikzpicture}
-			\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
+			\useasboundingbox(0,0) rectangle (\paperwidth,.12\paperheight);
+			\fill[bg] (0,0) rectangle (\paperwidth,.12\paperheight);
 				\node[anchor=base east] at (.7\paperwidth,.05\paperheight){\parbox{.85\paperwidth}{\raggedleft\usebeamerfont{footline}\inserttitle} };
 				\node[anchor=base west] at (.75\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertdate };
 				\node[anchor=base west] at (.92\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertpagenumber };
@@ -41,7 +42,7 @@
 }
 
 % Part frame
-\defbeamertemplate*{part page}{siegen}[1][]
+\defbeamertemplate*{section page}{siegen}[1][]
 {
 	\begin{tikzpicture}
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
@@ -50,17 +51,17 @@
 		\fill[fg] (0,0) rectangle (.2\paperwidth,1.01\paperheight);
 	
 		\node[anchor=south west] at (.04\paperwidth,.16\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
-			\usebeamerfont{part number}\insertpartnumber\par%
+			\usebeamerfont{part number}\insertsectionnumber\par%
 		\end{beamercolorbox}};
 		
 		\usebeamercolor{primary}
 		\fill[fg] (.19\paperwidth,0) rectangle (\paperwidth,1.01\paperheight);
 		
 		\node[anchor=south west] at (.33\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
-			\usebeamerfont{part title}\insertpart\par%
+			\usebeamerfont{part title}\insertsection\par%
 		\end{beamercolorbox}};
 	\end{tikzpicture}
 }
-\addtobeamertemplate{part page}{\thispagestyle{navigation@titlepage}}{}
+\addtobeamertemplate{section page}{\thispagestyle{navigation@titlepage}}{}
 
 \mode<all>

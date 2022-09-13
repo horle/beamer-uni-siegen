@@ -9,19 +9,33 @@
 			\ifx\insertsection\@empty%
 			{
 				\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
-				\node[anchor=north west,font=\large] at (.8,1.3){
-					\parbox{.85\paperwidth}{\insertframetitle}
+				\node[anchor=north west] at (.8,1.3){
+					\parbox{.85\paperwidth}{\usebeamerfont{frame title}\insertframetitle}
 				};
 			}
 			\else%
 			{
 				\useasboundingbox(0,0) rectangle (\paperwidth,.15\paperheight);
-				\node[anchor=south west,font=\scriptsize] at (.8,1.1){\insertsection};%
-				\node[anchor=north west,font=\large] at (.8,1.1){
-					\parbox{.85\paperwidth}{\insertframetitle}
+				\node[anchor=south west] at (.8,1.1){\usebeamerfont{section in head/foot}\insertsection};%
+				\node[anchor=north west] at (.8,1.1){
+					\parbox{.85\paperwidth}{\usebeamerfont{frame title}\insertframetitle}
 				};
 			}%
 			\fi
+		\end{tikzpicture}
+	\end{beamercolorbox}
+}
+
+% foot line
+\defbeamertemplate*{footline}{siegen}[1][]
+{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=.15\paperheight]{footline} 
+		\begin{tikzpicture}
+			\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
+				\node[anchor=base east] at (.7\paperwidth,.05\paperheight){\parbox{.85\paperwidth}{\raggedleft\usebeamerfont{footline}\inserttitle} };
+				\node[anchor=base west] at (.75\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertdate };
+				\node[anchor=base west] at (.92\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertpagenumber };
+				\node[anchor=south west] at (.03\paperwidth, .03\paperheight) { \resizebox{!}{.05\paperheight}{\setsmalllogo\par} };
 		\end{tikzpicture}
 	\end{beamercolorbox}
 }
@@ -33,19 +47,20 @@
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
 		
 		\usebeamercolor{secondary}
-		\fill[fg] (0,0) rectangle (.2\paperwidth,\paperheight);
+		\fill[fg] (0,0) rectangle (.2\paperwidth,1.01\paperheight);
 	
 		\node[anchor=south west] at (.04\paperwidth,.16\paperheight) {\begin{beamercolorbox}[wd=.35\paperwidth,#1]{titlelike}
 			\usebeamerfont{part number}\insertpartnumber\par%
 		\end{beamercolorbox}};
 		
 		\usebeamercolor{primary}
-		\fill[fg] (.19\paperwidth,0) rectangle (\paperwidth,\paperheight);
+		\fill[fg] (.19\paperwidth,0) rectangle (\paperwidth,1.01\paperheight);
 		
 		\node[anchor=south west] at (.33\paperwidth,.2\paperheight) {\begin{beamercolorbox}[wd=.4\paperwidth,#1]{titlelike}
 			\usebeamerfont{part title}\insertpart\par%
 		\end{beamercolorbox}};
 	\end{tikzpicture}
 }
+\addtobeamertemplate{part page}{\thispagestyle{navigation@titlepage}}{}
 
 \mode<all>

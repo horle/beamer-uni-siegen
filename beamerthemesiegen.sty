@@ -13,6 +13,9 @@
 \setbeamerfont{date}{size=\scriptsize}
 \setbeamerfont{part number}{size*={220}{130}, shape=\bfseries}
 \setbeamerfont{part title}{size*={30}{36}, shape=\bfseries}
+\setbeamerfont{footline}{size=\tiny}
+\setbeamerfont{frame title}{size=\large}
+\setbeamerfont{section in head/foot}{size=\scriptsize}
 
 % Settings
 \useinnertheme{siegen}
@@ -23,9 +26,16 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
 \AtBeginPart{
-\begin{frame}
-\partpage
-\end{frame}
+	\begin{frame}
+		\partpage
+	\end{frame}
 }
+
+
+\def\ps@navigation@titlepage{%
+  \setbeamertemplate{footline}{}
+  \setbeamertemplate{headline}{}
+  \setbeamertemplate{navigation symbols}{}
+  \@nameuse{ps@navigation}}
 
 \mode<all>

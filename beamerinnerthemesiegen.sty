@@ -52,10 +52,7 @@
 			\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 		
-		\node at (.03\paperwidth, .95\paperheight)
-		{
-			\includegraphics[height=.07\paperheight]{img/logo_uni.pdf}
-		};
+		\node at (.03\paperwidth, .95\paperheight) { \resizebox{!}{.12\paperheight}{\setlogo\par} };
 		
 	\end{tikzpicture}
 }
@@ -111,10 +108,7 @@
 				\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 	
-		\node at (.03\paperwidth, .95\paperheight)
-		{
-			\includegraphics[height=.07\paperheight]{img/logo_uni.pdf}
-		};
+		\node at (.03\paperwidth, .95\paperheight) { \resizebox{!}{.12\paperheight}{\setlogo\par} };
 	\end{tikzpicture}
 }
 
@@ -172,10 +166,7 @@
 				\usebeamerfont{author} www.uni-siegen.de\par%
 		\end{beamercolorbox}};
 	
-		\node at (.03\paperwidth, .95\paperheight)
-		{
-			\includegraphics[height=.1\paperheight]{img/logo_uni.pdf}
-		};
+		\node at (.03\paperwidth, .95\paperheight) { \resizebox{!}{.12\paperheight}{\setlogo\par} };
 	
 	\end{tikzpicture}
 }
@@ -237,15 +228,12 @@
 				\usebeamerfont{date}uni-siegen.de\par%
 		\end{beamercolorbox}};
 	
-		\node at (.03\paperwidth, .95\paperheight)
-		{
-			\includegraphics[height=.1\paperheight]{img/logo_uni.pdf}
-		};
+		\node at (.03\paperwidth, .95\paperheight) { \resizebox{!}{.12\paperheight}{\setlogo\par} };
 	
 	\end{tikzpicture}
 }
-
 \setbeamertemplate{title page}[alternative\beamer@X@titlepagealt]
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
 
 \mode
 <all>

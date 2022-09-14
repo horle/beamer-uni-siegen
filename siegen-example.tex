@@ -1,15 +1,23 @@
+% !TeX program = xelatex
+
 \documentclass[aspectratio=169]{beamer}
 \usepackage{fontspec}
 \usepackage{blindtext}
 
-\setmainfont{Calibri}
 \title{There Is No Largest Prime Number}
 \subtitle{A fundamental statement in number theory}
 \date{\today}
 \author[Euclid]{Euclid of Alexandria}
 
-\usetheme[titlepage=1]{siegen}
+% choose between 4 different title page designs, e.g. with [titlepage=3]
+\usetheme[titlepage=4]{siegen}
+% possible values: default, phil, bak, wir, nt, lwf
 \usecolortheme{default}
+
+% title graphic anchor is the bottom right corner of the image.
+\titlegraphic{
+    \includegraphics[height=\paperheight,width=\paperwidth]{img/progress.jpg}
+}
 
 \begin{document}
 
@@ -51,6 +59,10 @@
 \end{frame}
 
 \section{Hier steht der Kapitelname}
+\subsection{Hier steht der Kapitelname}
+\subsection{Hier steht der Kapitelname}
+\section{Hier steht der Kapitelname}
+\section{Hier steht der Kapitelname}
 
 \begin{frame}{Hier kann eine Überschrift einzeilig\\oder zweizeilig stehen}
 	\blindtext
@@ -72,7 +84,7 @@
 	\begin{minipage}{.31\textwidth}
 		\includegraphics[width=\textwidth]{img/progress.jpg}
 		
-		\captionof{figure}{Dies ist ein Bild}
+		\captionof{figure}{Dies ist eine Bildunterschrift, linksbündig gesetzt}
 	\end{minipage}
 \end{frame}
 

@@ -1,6 +1,8 @@
 \mode<presentation>
 
 % Requirement
+\RequirePackage{caption}
+\RequirePackage{colortbl}
 \RequirePackage{tikz}
 \usetikzlibrary{calc,intersections}
 
@@ -16,6 +18,7 @@
 \setbeamerfont{footline}{size=\tiny}
 \setbeamerfont{frame title}{size=\large}
 \setbeamerfont{section in head/foot}{size=\scriptsize}
+\setbeamerfont{caption}{size=\footnotesize}
 
 % Settings
 \useinnertheme{siegen}
@@ -25,12 +28,18 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
-\AtBeginPart{
+\AtBeginSection{
 	\begin{frame}
-		\partpage
+		\sectionpage
 	\end{frame}
 }
 
+\newcommand{\tocpage}{\usebeamertemplate*{toc page}}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{blocks}[default]
+\addtobeamertemplate{block begin}{%
+	\setlength{\textwidth}{\linewidth}
+}{}
 
 \def\ps@navigation@titlepage{%
   \setbeamertemplate{footline}{}

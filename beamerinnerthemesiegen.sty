@@ -7,9 +7,9 @@
 % Title page 1
 \defbeamertemplate{title page}{alternative1}[1][]
 {
-	
 	\pgfdeclarelayer{bg}    % declare background layer
 	\pgfsetlayers{bg,main}
+	\thispagestyle{navigation@titlepage}
 	
 	\begin{tikzpicture}[anchor=north west]
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
@@ -63,6 +63,7 @@
 	
 	\pgfdeclarelayer{bg}    % declare background layer
 	\pgfsetlayers{bg,main}
+	\thispagestyle{navigation@titlepage}
 	
 	\begin{tikzpicture}[anchor=north west]
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
@@ -80,7 +81,7 @@
 			\ifx\inserttitlegraphic\@empty%
 			{
 				\usebeamercolor{secondary}
-				\fill[fg] (\paperwidth,.8\paperheight) -- (ih) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
+				\fill[fg] (\paperwidth,1.01\paperheight) -- (ih) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 			} \else {
 				\clip (\paperwidth,1.01*\paperheight) -- (ih) -- ++(-110:100) -- (\paperwidth,0) -- cycle;
 				\node[anchor=south east] at ($(current page.south east)+(.2,-.1)$) {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par};
@@ -118,6 +119,7 @@
 	
 	\pgfdeclarelayer{bg}    % declare background layer
 	\pgfsetlayers{bg,main}
+	\thispagestyle{navigation@titlepage}
 	
 	\begin{tikzpicture}[anchor=north west]
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
@@ -180,6 +182,7 @@
 			
 	\setbeamerfont{author}{size=\footnotesize, shape=\bfseries}
 	\setbeamerfont{date}{size=\footnotesize, shape=\bfseries}
+	\thispagestyle{navigation@titlepage}
 	
 	\begin{tikzpicture}[anchor=north west]
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
@@ -233,7 +236,42 @@
 	\end{tikzpicture}
 }
 \setbeamertemplate{title page}[alternative\beamer@X@titlepagealt]
-\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+
+\defbeamertemplate*{toc page}{siegen}[1][]
+{
+	\pgfdeclarelayer{bg}    % declare background layer
+	\pgfsetlayers{bg,main}
+	
+	\begin{tikzpicture}[anchor=north west]
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		\begin{pgfonlayer}{bg}
+			
+			\path[name path=l] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+			\path[name path=h] (0,.83\paperheight) -- (\paperwidth,.83\paperheight);
+			\path[name path=b] (0,.2\paperheight) -- (\paperwidth,.2\paperheight);
+			\path[name path=d] (.72\paperwidth, 1.01\paperheight) -- ++(-110:100);
+			\path[name intersections={of=l and d,by=i}];
+			\path[name intersections={of=h and d,by=h}];
+			\path[name intersections={of=b and d,by=b}];
+			
+			\usebeamercolor{primary}
+			\fill[fg] (0,.75\paperheight) -- ($(i)-(1mm,0)$) -- ++(-110:100) -- cycle;
+			
+			\usebeamercolor{secondary}
+			\fill[fg] (\paperwidth,.83\paperheight) -- (h) -- (b) -- (\paperwidth,.2\paperheight) -- cycle;
+		\end{pgfonlayer}
+		
+		\node[anchor=north west] at (.03\paperwidth,.7\paperheight) {\begin{beamercolorbox}[wd=.5\paperwidth,#1]{titlelike}
+				\usebeamerfont{toc}\tableofcontents\par%
+		\end{beamercolorbox}};
+	
+		\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
+		\node[anchor=west] at (.03\paperwidth,.87\paperheight){\begin{beamercolorbox}[wd=.5\paperwidth,#1]{frametitle} 
+			\usebeamerfont{frame title}\textbf{\contentsname}\\\insertframesubtitle
+		\end{beamercolorbox}};
+		
+	\end{tikzpicture}
+}
 
 \mode
 <all>

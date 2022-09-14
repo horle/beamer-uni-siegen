@@ -4,36 +4,94 @@
 
 \setmainfont{Calibri}
 \title{There Is No Largest Prime Number}
-\subtitle{A very very ververy very very very very very very very long subtitle}
+\subtitle{A fundamental statement in number theory}
 \date{\today}
-\author[Euclid]{Euclid of Alexandria \texttt{euclid@alexandria.edu}}
+\author[Euclid]{Euclid of Alexandria}
 
-\usetheme[titlepage=4]{siegen}
+\usetheme[titlepage=1]{siegen}
 \usecolortheme{default}
 
-\titlegraphic{
-    \includegraphics[height=\paperheight,width=\paperwidth]{img/progress.jpg}
-}
-
 \begin{document}
-
-	
-%	\section{LLL}
-%	\subsection{kakak}
 
 \begin{frame}
 \titlepage
 \end{frame}
 
-\section{test}
+\setbeamertemplate{title page}[alternative2]
 
-\begin{frame}{testasd asdj oasjdkdj asdj aksdjadsj apsd jaods testasd asdj oasjdkdj oads testasd asdj oasjdkdj asdj aksdjadsj apsd jaods testaad j}
-	
-	\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+\titlegraphic{
+	\includegraphics[scale=.32]{img/progress.jpg}
+}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\setbeamertemplate{title page}[alternative3]
+
+\titlegraphic{}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\setbeamertemplate{title page}[alternative4]
+
+\titlegraphic{
+	\includegraphics[scale=.32]{img/progress.jpg}
+}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\framesubtitle{A table of contents}
+	\tocpage
+\end{frame}
+
+\section{Hier steht der Kapitelname}
+
+\begin{frame}{Hier kann eine Überschrift einzeilig\\oder zweizeilig stehen}
 	\blindtext
 \end{frame}
 
-\part{Hier steht der Kapitelname}
+\begin{frame}{Bildfolie}
+	\begin{minipage}{.31\textwidth}
+		\includegraphics[width=\textwidth]{img/progress.jpg}
+		
+		\captionof{figure}{Dies ist ein Bild}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.31\textwidth}
+		\includegraphics[width=\textwidth]{img/progress.jpg}
+		
+		\captionof{figure}{Dies ist ein Bild}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{.31\textwidth}
+		\includegraphics[width=\textwidth]{img/progress.jpg}
+		
+		\captionof{figure}{Dies ist ein Bild}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Bildfolie}
+	\begin{figure}
+		\includegraphics[height=.5\textheight]{img/progress.jpg}
+		\caption{Dies ist die Uni}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Tabellenfolie}
+	\begin{table}
+		\begin{tabular}{l | l | l}
+			\rowcolor{unigrau}
+			
+			Spalte 1 & Spalte 2 & Spalte 3\\
+		\end{tabular}
+	\end{table}
+\end{frame}
 
 \end{document}
 

@@ -235,9 +235,11 @@
 	
 	\end{tikzpicture}
 }
+% set title page design alternative
 \setbeamertemplate{title page}[alternative\beamer@X@titlepagealt]
 
-\defbeamertemplate*{toc page}{siegen}[1][]
+% table of contents design
+\defbeamertemplate*{toc page}{}[1][]
 {
 	\pgfdeclarelayer{bg}    % declare background layer
 	\pgfsetlayers{bg,main}

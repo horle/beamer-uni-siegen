@@ -41,9 +41,10 @@
 	\end{beamercolorbox}
 }
 
-% Part frame
-\defbeamertemplate*{section page}{siegen}[1][]
+% section frame, design 1
+\defbeamertemplate{section page}{alternative1}[1][]
 {
+	\thispagestyle{navigation@titlepage}
 	\begin{tikzpicture}
 		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
 		
@@ -62,6 +63,48 @@
 		\end{beamercolorbox}};
 	\end{tikzpicture}
 }
-\addtobeamertemplate{section page}{\thispagestyle{navigation@titlepage}}{}
+
+% section frame, design 2
+\defbeamertemplate{section page}{alternative2}[1][]
+{
+	\thispagestyle{navigation@titlepage}
+	\begin{tikzpicture}
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		
+		\usebeamercolor{primary}
+		\fill[fg] (0,0) rectangle (\paperwidth,1.01\paperheight);
+		
+		\usebeamercolor{secondary}
+		\fill[fg] (.5\paperwidth,0) -- ++(70:100) -- (\paperwidth,1.01\paperheight) -- (\paperwidth,0) --cycle;
+		
+		\node[anchor=north west] at (.05\paperwidth,.72\paperheight) {\begin{beamercolorbox}[wd=.5\paperwidth,#1]{titlelike}
+			\usebeamerfont{part title}\insertsection\par%
+		\end{beamercolorbox}};
+	\end{tikzpicture}
+}
+
+% section frame, design 3
+\defbeamertemplate{section page}{alternative3}[1][]
+{
+	\thispagestyle{navigation@titlepage}
+	\begin{tikzpicture}
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		
+		\ifx\sectionpagebackground\@empty {
+			\usebeamercolor{secondary}
+			\fill[fg] (0,0) rectangle (\paperwidth,1.01\paperheight);
+		} \else {
+			\node at (0,0) {\includegraphics[width=\paperwidth,height=1.01\paperheight,keepaspectratio]{\sectionpagebackground}};%
+		}%
+		\fi
+		
+		\usebeamercolor{primary}
+		\fill[fg] (0,.4\paperheight) rectangle (.6\paperwidth,.8\paperheight);
+		
+		\node[anchor=north west] at (.05\paperwidth,.72\paperheight) {\begin{beamercolorbox}[wd=.5\paperwidth,#1]{titlelike}
+			\usebeamerfont{part title}\insertsection\par%
+		\end{beamercolorbox}};
+	\end{tikzpicture}
+}
 
 \mode<all>

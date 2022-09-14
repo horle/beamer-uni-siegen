@@ -14,11 +14,12 @@
 \setbeamerfont{author}{size=\scriptsize}
 \setbeamerfont{date}{size=\scriptsize}
 \setbeamerfont{part number}{size*={220}{130}, shape=\bfseries}
-\setbeamerfont{part title}{size*={30}{36}, shape=\bfseries}
+\setbeamerfont{part title}{size*={28}{34}, shape=\bfseries}
 \setbeamerfont{footline}{size=\tiny}
 \setbeamerfont{frame title}{size=\large}
 \setbeamerfont{section in head/foot}{size=\scriptsize}
-\setbeamerfont{caption}{size=\footnotesize}
+\setbeamerfont{section in toc}{shape=\bfseries}
+\setbeamerfont{caption}{size=\scriptsize}
 
 % Settings
 \useinnertheme{siegen}
@@ -28,14 +29,23 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
+\setbeamertemplate{section page}[alternative1]
+
 \AtBeginSection{
 	\begin{frame}
-		\sectionpage
+		\usebeamertemplate*{section page}
 	\end{frame}
 }
 
 \newcommand{\tocpage}{\usebeamertemplate*{toc page}}
+\newcommand{\sectionpagebackground}{}
+\newcommand{\sectiondesign}[2][]{
+	\renewcommand{\sectionpagebackground}{#1}
+	\setbeamertemplate{section page}[alternative#2]
+}
+
 \setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
 \setbeamertemplate{blocks}[default]
 \addtobeamertemplate{block begin}{%
 	\setlength{\textwidth}{\linewidth}

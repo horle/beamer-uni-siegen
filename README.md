@@ -1,6 +1,8 @@
 # beamer-uni-siegen
 A LaTeX beamer theme for the new University of Siegen corporate design.
 
+This template follows the official design guidelines and PowerPoint templates under https://design.uni-siegen.de/.
+
 ### Installation
 
 If you are using a TeXlive distribution (recommended), all ``.sty`` files in the repos' root folder need to be moved to your custom ``texmf`` folder, and there under

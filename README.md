@@ -32,7 +32,7 @@ For setting the section page layout, use
 
     \sectiondesign{1}
 
-anywhere before calling ``\section``. For layout 3, you can also define a background image with
+with parameter 1 to 3 anywhere before calling ``\section``. For layout 3, you can also define a background image with
 
     \sectiondesign[path/to/your/image.jpg]{2}
     

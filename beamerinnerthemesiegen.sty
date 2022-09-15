@@ -275,5 +275,42 @@
 	\end{tikzpicture}
 }
 
+% thank you frame design
+\defbeamertemplate*{closing page}{}[1][]
+{
+	\pgfdeclarelayer{bg}    % declare background layer
+	\pgfsetlayers{bg,main}
+	
+	\begin{tikzpicture}[anchor=north west]
+		\useasboundingbox (1,0) rectangle(\paperwidth,\paperheight);
+		\begin{pgfonlayer}{bg}
+			
+			\path[name path=l] (0,.75\paperheight) -- (\paperwidth,.75\paperheight);
+			\path[name path=h] (0,.83\paperheight) -- (\paperwidth,.83\paperheight);
+			\path[name path=b] (0,.2\paperheight) -- (\paperwidth,.2\paperheight);
+			\path[name path=d] (.82\paperwidth, 1.01\paperheight) -- ++(-110:100);
+			\path[name intersections={of=l and d,by=i}];
+			\path[name intersections={of=h and d,by=h}];
+			\path[name intersections={of=b and d,by=b}];
+			
+			\usebeamercolor{secondary}
+			\fill[fg] (0,.75\paperheight) -- ($(i)-(1mm,0)$) -- ++(-110:100) -- cycle;
+			
+			\usebeamercolor{primary}
+			\fill[fg] (\paperwidth,.83\paperheight) -- (h) -- (b) -- (\paperwidth,.2\paperheight) -- cycle;
+		\end{pgfonlayer}
+		
+		\node[anchor=north west] at (.03\paperwidth,.7\paperheight) {\begin{beamercolorbox}[wd=.5\paperwidth,#1]{titlelike}
+				\usebeamerfont{toc}\usebeamertemplate*{closing content}\par%
+		\end{beamercolorbox}};
+		
+		\useasboundingbox(0,0) rectangle (\paperwidth,.1\paperheight);
+		\node[anchor=west] at (.03\paperwidth,.87\paperheight){\begin{beamercolorbox}[wd=.5\paperwidth,#1]{frametitle} 
+				\usebeamerfont{frame title}\textbf{\usebeamertemplate*{closing title}}
+		\end{beamercolorbox}};
+		
+	\end{tikzpicture}
+}
+
 \mode
 <all>

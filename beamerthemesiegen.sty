@@ -2,7 +2,6 @@
 
 % Requirement
 \RequirePackage{caption}
-\RequirePackage{colortbl}
 \RequirePackage{tikz}
 \usetikzlibrary{calc,intersections}
 
@@ -43,6 +42,11 @@
 	\renewcommand{\sectionpagebackground}{#1}
 	\setbeamertemplate{section page}[alternative#2]
 }
+\newcommand{\closingpage}[2]{
+	\setbeamertemplate{closing title}{#1}
+	\setbeamertemplate{closing content}{#2}
+	\usebeamertemplate*{closing page}
+}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
@@ -50,6 +54,8 @@
 \addtobeamertemplate{block begin}{%
 	\setlength{\textwidth}{\linewidth}
 }{}
+
+\renewcommand{\arraystretch}{1.4}
 
 \def\ps@navigation@titlepage{%
   \setbeamertemplate{footline}{}

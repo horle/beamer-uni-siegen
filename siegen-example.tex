@@ -1,8 +1,10 @@
 % !TeX program = xelatex
 
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169, table]{beamer}
 \usepackage{fontspec}
 \usepackage{blindtext}
+\usepackage{tabularx}
+\usepackage{colortbl}
 
 \title{There Is No Largest Prime Number}
 \subtitle{A fundamental statement in number theory}
@@ -98,14 +100,28 @@
 	\end{figure}
 \end{frame}
 
+\usebeamercolor{primary}
+\colorlet{test}{fg}
+\newcommand{\thead}[1]{\cellcolor{test}\textcolor{white}{#1}}
+
 \begin{frame}{Tabellenfolie}
 	\begin{table}
-		\begin{tabular}{l | l | l}
-			\rowcolor{unigrau}
+		\usebeamercolor{table row background}
+		\arrayrulecolor{white}
+		\doublerulesepcolor{white}
+		\rowcolors[]{1}{bg}{fg}
+		\begin{tabularx}{10cm}{X | X | X}
 			
-			Spalte 1 & Spalte 2 & Spalte 3\\
-		\end{tabular}
-	\end{table}
+			\thead{Spalte 1} & \thead{Spalte 2} & \thead{Spalte 3}\\\hline\hline
+			Zelle & Zelle& Zelle\\
+			Zelle & Zelle& Zelle\\
+			Zelle & Zelle& Zelle\\
+			Zelle & Zelle& Zelle\\
+		\end{tabularx}
+	\end{table}\end{frame}
+
+\begin{frame}
+	\closingpage{Vielen Dank für Ihre Aufmerksamkeit!}{\textbf{Kontakt:}\\\medskip Felix Kußmaul\\Universität Siegen\\Adolf-Reichwein-Str.\ 4\\57076 Siegen}
 \end{frame}
 
 \end{document}

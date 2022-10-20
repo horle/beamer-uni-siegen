@@ -5,7 +5,7 @@ This template follows the official design guidelines and PowerPoint templates un
 
 ### Installation
 
-If you are using a TeXlive distribution (recommended), all ``.sty`` files in the repos' root folder need to be moved to your custom ``texmf`` folder, and there under
+If you are using a TeXlive distribution (recommended), all ``.sty`` files and the ``img`` folder in the repos' root need to be moved to your custom ``texmf`` folder, and there under
 
     texmf/tex/latex/beamertheme-siegen/
 

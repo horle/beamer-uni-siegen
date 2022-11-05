@@ -4,6 +4,28 @@
 
 \mode<presentation>
 
+\providebool{siegen@standout}
+\define@key{beamerframe}{standout}[true]{%
+  \booltrue{siegen@standout}
+  \begingroup
+    \setkeys{beamerframe}{c}
+    \setkeys{beamerframe}{noframenumbering}
+    \thispagestyle{empty}
+    \setbeamertemplate{frametitle}{}
+    \setbeamercolor{background canvas}{
+        use=primary,
+        bg=primary.fg
+    }
+    \usebeamercolor[fg]{titlelike}
+}
+
+\pretocmd{\beamer@reseteecodes}{%
+    \ifbool{siegen@standout}{
+      \endgroup
+      \boolfalse{siegen@standout}
+    }{}
+  }{}{}
+
 % Title page 1
 \defbeamertemplate{title page}{alternative1}[1][]
 {

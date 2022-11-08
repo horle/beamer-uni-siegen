@@ -33,10 +33,12 @@
 		\begin{tikzpicture}
 			\useasboundingbox(0,0) rectangle (\paperwidth,.12\paperheight);
 			\fill[bg] (0,0) rectangle (\paperwidth,.12\paperheight);
-				\node[anchor=base east] at (.7\paperwidth,.05\paperheight){\parbox{.85\paperwidth}{\raggedleft\usebeamerfont{footline}\insertshorttitle} };
-				\node[anchor=base west] at (.75\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertdate };
-				\node[anchor=base west] at (.92\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertframenumber };
-				\node[anchor=south west] at (.03\paperwidth, .03\paperheight) { \resizebox{!}{.05\paperheight}{\setsmalllogo\par} };
+			
+			\node[anchor=south west] at (.03\paperwidth, .03\paperheight) { \resizebox{!}{.05\paperheight}{\setsmalllogo\par} };
+			\node[anchor=base west] at (.15\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertshortauthor };
+			\node[anchor=base] at (.5\paperwidth,.05\paperheight){\parbox{.4\paperwidth}{\raggedleft\usebeamerfont{footline}\insertshorttitle} };
+			\node[anchor=base west] at (.75\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertshortdate };
+			\node[anchor=base west] at (.92\paperwidth,.05\paperheight){ \usebeamerfont{footline}\insertframenumber };
 		\end{tikzpicture}
 	\end{beamercolorbox}
 }
